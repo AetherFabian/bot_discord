@@ -1,3 +1,7 @@
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
 const Discord = require('discord.js');
 require('dotenv').config();
 require('colors')
@@ -26,3 +30,9 @@ function requireHandlers(){
 requireHandlers();
 
 client.login(process.env.DISCORD_API_TOKEN);
+})
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`.green);
+})
