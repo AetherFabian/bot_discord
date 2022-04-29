@@ -1,12 +1,12 @@
-const config = require(`${process.cwd()}/config/config.json`);
 const serverSchema = require(`${process.cwd()}/models/server.js`);
 const {secure} = require('../../handlers/functions.js');
+const prefix = "-";
 
 module.exports = async (client,message) => {
     if (!message.guild || !message.channel || message.author.bot)return;
     let data = await secure(serverSchema, "guildID", message.guild.id, 
     {guildID: message.guild.id, 
-    prefix: config.prefix,
+    prefix: prefix,
     guildName: message.guild.name,
     });
     if (!message.content.startsWith(data.prefix)) return;

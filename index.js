@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const config = require('./config/config.json');
+require('dotenv').config();
 require('colors')
 
 const client = new Discord.Client({
@@ -25,4 +25,4 @@ function requireHandlers(){
 
 requireHandlers();
 
-client.login(config.token)
+client.login(process.env.DISCORD_API_TOKEN);
